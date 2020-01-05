@@ -66,7 +66,7 @@ public class IssueWorklogTest {
         // Arrange
         Issue issue = mock(Issue.class);
         issue.restclient = mock(RestClient.class);
-        doCallRealMethod().when(issue).addWorkLog(anyString(), any(DateTime.class), anyLong());
+        doCallRealMethod().when(issue).addWorkLog(any(), any(DateTime.class), anyLong());
 
         // Act
         // Assert
@@ -78,7 +78,7 @@ public class IssueWorklogTest {
         // Arrange
         Issue issue = mock(Issue.class);
         issue.restclient = mock(RestClient.class);
-        doCallRealMethod().when(issue).addWorkLog(anyString(), any(DateTime.class), anyLong());
+        doCallRealMethod().when(issue).addWorkLog(anyString(), any(), anyLong());
 
         // Act
         // Assert

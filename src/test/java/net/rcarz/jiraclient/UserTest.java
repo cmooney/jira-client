@@ -81,8 +81,8 @@ public class UserTest {
     @Test(expected = JiraException.class)
     public void testGetUserRestError() throws Exception {
 
-        final RestClient restClient = PowerMockito.mock(RestClient.class);
-        when(restClient.get(anyString(),anyMap())).thenThrow(Exception.class);
+       final RestClient restClient = PowerMockito.mock(RestClient.class);
+       when(restClient.get(anyString(),anyMap())).thenThrow(RestException.class);
        User.get(restClient, "username");
     }
 

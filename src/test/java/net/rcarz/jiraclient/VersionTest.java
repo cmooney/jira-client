@@ -86,7 +86,7 @@ public class VersionTest {
     public void testMergeWithFailed() throws Exception {
         final RestClient mockRestClient = PowerMockito.mock(RestClient.class);
         final JSONObject mockJSON = PowerMockito.mock(JSONObject.class);
-        when(mockRestClient.put(anyString(),any(JSONObject.class))).thenThrow(Exception.class);
+        when(mockRestClient.put(anyString(),any(JSONObject.class))).thenThrow(RestException.class);
         Version version = new Version(mockRestClient,mockJSON);
         version.mergeWith(new Version(mockRestClient,mockJSON));
     }
@@ -104,7 +104,7 @@ public class VersionTest {
     public void testCopyToFailed() throws Exception {
         final RestClient mockRestClient = PowerMockito.mock(RestClient.class);
         final JSONObject mockJSON = PowerMockito.mock(JSONObject.class);
-        when(mockRestClient.post(anyString(), any(JSONObject.class))).thenThrow(Exception.class);
+        when(mockRestClient.post(anyString(), any(JSONObject.class))).thenThrow(RestException.class);
         Version version = new Version(mockRestClient,getTestJSON());
         version.copyTo(new Project(mockRestClient,mockJSON));
     }

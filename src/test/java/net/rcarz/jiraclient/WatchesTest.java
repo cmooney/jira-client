@@ -38,7 +38,7 @@ public class WatchesTest {
     @Test(expected = JiraException.class)
     public void testGetWatchersGetThrows() throws Exception {
         final RestClient restClient = PowerMockito.mock(RestClient.class);
-        PowerMockito.when(restClient.get(anyString())).thenThrow(Exception.class);
+        PowerMockito.when(restClient.get(anyString())).thenThrow(RestException.class);
         Watches.get(restClient, "someID");
     }
 
