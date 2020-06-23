@@ -34,7 +34,7 @@ Point your *settings.xml* at [Maven Central](http://repo1.maven.org/maven2) and 
     <dependency>
       <groupId>net.rcarz</groupId>
       <artifactId>jira-client</artifactId>
-      <version>0.5</version>
+      <version>0.6</version>
       <scope>compile</scope>
     </dependency>
 ```
@@ -84,7 +84,7 @@ public class Example {
             issue.transition()
                 .field(Field.ASSIGNEE, "batman")
                 .execute("Open");
-                
+
             /* Assign the issue */
             issue.update()
                 .field(Field.ASSIGNEE, "batman")
@@ -152,7 +152,7 @@ public class Example {
             );
             for (CustomFieldOption cfo : cfselect)
                 System.out.println("Custom Field Select: " + cfo.getValue());
-               
+
             /* Print out allowed values for the custom multi-select box. */
             List<CustomFieldOption> allowedValues = jira.getCustomFieldAllowedValues("customfield_5678", "TEST", "Task");
             for (CustomFieldOption customFieldOption : allowedValues)
@@ -166,7 +166,7 @@ public class Example {
                     add(Field.valueById("1234")); /* you can also update using the value ID */
                 }})
                 .execute();
-                
+
             /* Add an attachment */
             File file = new File("C:\\Users\\John\\Desktop\\screenshot.jpg");
             issue.addAttachment(file);
@@ -312,8 +312,8 @@ https://docs.atlassian.com/jira-software/REST/cloud/
 | * | ```List<Issue> getIssues()``` | GET /rest/agile/1.0/epic/{epicId}/issue |
 | [Issue](src/main/java/net/rcarz/jiraclient/agile/Issue.java) | ```static Issue get(RestClient restclient, long id)``` | GET /rest/agile/1.0/issue/{issueId} |
 | | ```static Issue get(RestClient restclient, String key)``` | GET /rest/agile/1.0/issue/{issueKey} |
-    
-    
+
+
 
 ### Agile Example ###
 To see more examples, look at [AgileClientDemoTest](src/test/groovy/AgileClientDemoTest.groovy)
@@ -348,4 +348,3 @@ public class Example {
     }
 }
 ```
-
